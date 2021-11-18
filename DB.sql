@@ -1,0 +1,12 @@
+create database datarep;
+show databases;
+use datarepresentation;
+show tables;
+create table book (id int NOT NULL AUTO_INCREMENT, title varchar(250), author varchar(250), price int, PRIMARY KEY(id));
+describe student;
+select * FROM book;
+INSERT into book (title, author, price) VALUES ('Book1', 'Author1', 1);
+UPDATE student set name = 'Mark' where id = 1;
+select * FROM student where name LIKE 'M%';
+DELETE from student where id = 1;
+desc book;

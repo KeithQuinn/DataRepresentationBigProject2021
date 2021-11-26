@@ -170,13 +170,13 @@
     }
     
     function getAllAjax(){
+        host = window.location.origin
         $.ajax({
-            "url": "http://127.0.0.1:5000/shoppinglists",
+            "url": host+"/shoppinglists",
             "method":"GET",
             "data":"",
             "dataType": "JSON",
             "success":function(result){
-                //console.log(result);
                 for (shoppinglist of result){
                     addshoppinglistToTable(shoppinglist);
                 }
@@ -190,16 +190,15 @@
     }
     
     function createshoppinglistAjax(shoppinglist){
-        //var car = {"reg":"12 D 1234","make":"Fiat","model":"Punto","quantity":3000}
+        host = window.location.origin
         console.log(JSON.stringify(shoppinglist));
         $.ajax({
-            "url": "http://127.0.0.1:5000/shoppinglists",
+            "url": host+"/shoppinglists",
             "method":"POST",
             "data":JSON.stringify(shoppinglist),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
-                //console.log(result);
                 shoppinglist.id = result.id
                 addshoppinglistToTable(shoppinglist)
                 clearForm()
@@ -212,9 +211,10 @@
     }
     
     function updateshoppinglistAjax(shoppinglist){
+        host = window.location.origin
         console.log(JSON.stringify(shoppinglist));
         $.ajax({
-            "url": "http://127.0.0.1:5000/shoppinglists/"+encodeURI(shoppinglist.id),
+            "url": host+"/shoppinglists/"+encodeURI(shoppinglist.id),
             "method":"PUT",
             "data":JSON.stringify(shoppinglist),
             "dataType": "JSON",
@@ -230,9 +230,10 @@
     }
     
     function deleteshoppinglistAjax(id){
+        host = window.location.origin
         console.log(JSON.stringify(shoppinglist));
         $.ajax({
-            "url": "http://127.0.0.1:5000/shoppinglists/"+encodeURI(id),
+            "url": host+"/shoppinglists/"+encodeURI(id),
             "method":"DELETE",
             "data":"",
             "dataType": "JSON",

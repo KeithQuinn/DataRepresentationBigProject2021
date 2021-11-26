@@ -1,25 +1,26 @@
 import mysql.connector
-class BookDAO:
+import dbconfig as cfg
+
+class shoppinglistDAO:
     db=""
     def __init__(self):
         self.db = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="quinner85",
-            database="datarepresentation"
+            host=cfg.mysql['host'],
+            user=cfg.mysql['user'],
+            password=cfg.mysql['password'],
+            database=cfg.mysql['database'],
     )
     def create(self, values):
         cursor = self.db.cursor()
-        sql="insert into book (title, author, price) values (%s,%s,%s)"
+        sql="insert into shoppinglist (item, brand, quantity) values (%s,%s,%s)"
         cursor.execute(sql, values)
         
         self.db.commit()
         return cursor.lastrowid
 
-
     def getAll(self):
         cursor = self.db.cursor()
-        sql="select * from book"
+        sql="select * from shoppinglist"
         cursor.execute(sql)
         results = cursor.fetchall()
         returnArray = []
@@ -27,33 +28,30 @@ class BookDAO:
             returnArray.append(self.convertToDictionary(result))
         return returnArray
 
-
     def findByID(self, id):
         cursor = self.db.cursor()
-        sql="select * from book where id = %s"
+        sql="select * from shoppinglist where id = %s"
         values = (id,)
         cursor.execute(sql, values)
         result = cursor.fetchone()
         return self.convertToDictionary(result)
 
-
     def update(self, values):
         cursor = self.db.cursor()
-        sql="update book set title= %s, author=%s, price=%s where id = %s"
+        sql="update shoppinglist set item= %s, brand=%s, quantity=%s where id = %s"
         cursor.execute(sql, values)
         self.db.commit()
     
-
     def delete(self, id):
         cursor = self.db.cursor()
-        sql="delete from book where id = %s"
+        sql="delete from shoppinglist where id = %s"
         values = (id,)
         cursor.execute(sql, values)
         self.db.commit()
         print("delete done")
 
     def convertToDictionary(self, result):
-        colnames=['id', 'Title', 'Author', 'Price']
+        colnames=['id', 'item', 'brand', 'quantity']
 
         item={}
 
@@ -63,5 +61,4 @@ class BookDAO:
                 item[colName] = value
         return item
 
-
-bookDAO = BookDAO()
+shoppinglistDAO = shoppinglistDAO()

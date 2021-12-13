@@ -1,7 +1,9 @@
 # DataRepresentationBigProject2021
 
-Logon details for pythonanywhere
+pythonanywhere https://keithquinn.pythonanywhere.com/shoppinglist.html
 
-Username: u
+Logon details:
 
-Password: p
+`Username: u`
+
+`Password: p`

@@ -15,7 +15,6 @@ class shoppinglistDAO:
     def __init__(self):
         self.dbConnect()
 
-
     def getCursor(self):
         if not self.db.is_connected():
             self.dbConnect()

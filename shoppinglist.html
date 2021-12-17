@@ -15,7 +15,7 @@
             .center {
               margin: 0;
               position: absolute;
-              top: 60%;
+              top: 64%;
               left: 50%;
               -ms-transform: translate(-50%, -50%);
               transform: translate(-50%, -50%);
@@ -32,6 +32,9 @@
         </style>
     </head>
     <body class="background">
+        <br/>
+        <br/>
+        <br/>
         <h1>Shopping List</h1>
         <br/>
         <p>Shopping list to be determined through CRUD operations during the week for weekly shop at the weekend!</p>
@@ -44,9 +47,9 @@
             <table style="color:#f3eaea"; class="table" id="shoppinglistTable">
                 <tr>
                         <th>id</th>
-                        <th>Item</th>
-                        <th>Brand</th>
-                        <th>Quantity</th>
+                        <th style="color:#f3eaea";>Item</th>
+                        <th style="color:#f3eaea";>Brand</th>
+                        <th style="color:#f3eaea";>Quantity</th>
                         <th>Update</th>
                         <th>Delete</th>
                 </tr>
@@ -55,12 +58,13 @@
         </div>
         <div id='createUpdateForm' style="display: none">
                 <h2><span id="createLabel">Create a</span> <span id="updateLabel">update</span> Shopping List</h2>
+                <br/>
                 <input type="hidden" name="id"/>
-                Item <input type="text" name="item"/> <br/>
-                Brand <input type="text" name="brand"/> <br/>
-                Quantity <input type="number" name="quantity"/> <br/>
+                <p> Item  <input type="text" name="item"/><br/></p> 
+                <p>Brand<input type="text" name="brand"/><br/></p> 
+                <p> Qnty   <input type="number" name="quantity"/><br/></p> 
                 <span class="center"><button id="doCreateButton" onclick="doCreate()">Create</button></span>
-                <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
+                <span class="center"><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
         </div>
     </body>
     <script>
@@ -248,7 +252,7 @@
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
-               // console.log(result);
+               //console.log(result);
                   
             },
             "error":function(xhr,status,error){

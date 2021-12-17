@@ -22,6 +22,7 @@ This repository includes the following files:
 
 * LICENCE - licence file for copyright.
 * README.Md - README file for the repository, currently reading!
+* shopping.html - Hypertext Markup Langauge file used to structure the web page and its content.
 * shopping.png - background for web page
 * dbconfigTemplate.py - user to fill log on details which will be used in shoppinglistDAO.py file
 * shoppinglistDAO.py - data access object file

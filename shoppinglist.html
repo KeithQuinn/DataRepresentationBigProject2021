@@ -4,16 +4,44 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            h1 {text-align: center;
+                color:aliceblue;}
+            h2 {text-align: center;
+                color:aliceblue;}
+            p {text-align: center;
+                color:aliceblue;}
+            div {text-align: center;} 
+            .center {
+              margin: 0;
+              position: absolute;
+              top: 60%;
+              left: 50%;
+              -ms-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+              color:aliceblue;
+            }
+            .background{
+	            width:100%;
+	            height:95vh;
+	            background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(shopping.png);
+	            background-size:cover;
+	            background-position: center;
+	        }
+        
+        </style>
     </head>
-    <body>
-        <br/>
+    <body class="background">
         <h1>Shopping List</h1>
         <br/>
         <p>Shopping list to be determined through CRUD operations during the week for weekly shop at the weekend!</p>
         <br/>
+        <h2>Instructions</h2>
+        <p>Press the Create Button to add a new item, the Update Button to update an existing item and the Delete Button to remove an item from the list</p>
+        <br/>
         <div> <button id="showCreateButton" onclick="showCreate()">Create</button></div>
         <div>
-            <table class="table" id="shoppinglistTable">
+            <table style="color:#f3eaea"; class="table" id="shoppinglistTable">
                 <tr>
                         <th>id</th>
                         <th>Item</th>
@@ -26,12 +54,12 @@
             </table>
         </div>
         <div id='createUpdateForm' style="display: none">
-                <h2><span id="createLabel">Create a</span> <span id="updateLabel">update</span> shoppinglist</h2>
+                <h2><span id="createLabel">Create a</span> <span id="updateLabel">update</span> Shopping List</h2>
                 <input type="hidden" name="id"/>
                 Item <input type="text" name="item"/> <br/>
                 Brand <input type="text" name="brand"/> <br/>
                 Quantity <input type="number" name="quantity"/> <br/>
-                <span><button id="doCreateButton" onclick="doCreate()">Create</button></span>
+                <span class="center"><button id="doCreateButton" onclick="doCreate()">Create</button></span>
                 <span><button id="doUpdateButton" onclick="doUpdate()">Update</button></span>
         </div>
     </body>
